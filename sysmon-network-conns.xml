@@ -1,0 +1,13 @@
+<Sysmon schemaversion="2.0">
+  <HashAlgorithms>*</HashAlgorithms>
+  <EventFiltering>
+    <DriverLoad onmatch="exclude">
+      <Signature condition="contains">microsoft</Signature>
+      <Signature condition="contains">windows</Signature>
+    </DriverLoad>
+    <ProcessTerminate onmatch="include"/>
+    <NetworkConnect onmatch="include">
+      <DestinationPort>*</DestinationPort>
+    </NetworkConnect>
+  </EventFiltering>
+</Sysmon>
